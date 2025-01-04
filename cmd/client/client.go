@@ -4,14 +4,15 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/gorilla/websocket"
-	"github.com/spf13/viper"
-	"gopkg.in/toast.v1"
 	"gotify-client/internal/client"
 	"log"
 	"net/http"
 	"net/url"
 	"time"
+
+	"github.com/gorilla/websocket"
+	"github.com/spf13/viper"
+	"gopkg.in/toast.v1"
 
 	"gotify-client/constants"
 	"gotify-client/pkg/config"
@@ -63,7 +64,7 @@ func Main() {
 	}
 
 	u := url.URL{
-		Scheme: "ws",
+		Scheme: "wss", // 修改这里：从 ws 改为 wss
 		Host:   conf.Server.Addr,
 		Path:   "/stream",
 	}
