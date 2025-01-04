@@ -13,8 +13,8 @@
 
 ## 启动
 
-1. 下载最新的 release 版本
+1. 下载最新的 release 版本，config.toml.example 以及start.vbs
 2. 放到任意目录
-3. 复制config.toml.example 为 config.toml
+3. 重命名为 config.toml，和gotify-client.exe放在同一目录
 4. 修改 config.toml 中的配置以及start.vbs中的路径
 5. 双击 start.vbs 启动, 也可以在任务计划中设置开机启动
