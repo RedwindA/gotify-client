@@ -1,0 +1,11 @@
+# 配置 gotify 服务器地址和认证信息
+[Server]
+Addr = "gotify.your.site:443"  # gotify 服务器地址，服务端必须启用 HTTPS
+UserToken = "aaabbbccc"    # 用户 token
+
+# 配置应用 token (用于推送消息)
+# [[Apps]]
+# AppToken = "your-app-token1"
+
+# [[Apps]] 
+# AppToken = "your-app-token2"W
