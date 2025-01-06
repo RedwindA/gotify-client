@@ -57,6 +57,15 @@ func readConfig() error {
 	return viper.Unmarshal(conf)
 }
 
+func showNotification(title, message string) {
+	retTitle, _ := simplifiedchinese.GBK.NewEncoder().String(title)
+	retMessage, _ := simplifiedchinese.GBK.NewEncoder().String(message)
+
+	notification.Title = retTitle
+	notification.Message = retMessage
+	_ = notification.Push()
+}
+
 func Main() {
 	err := readConfig()
 	if err != nil {
@@ -139,14 +148,7 @@ func Main() {
 				data := &client.GotifyMessage{}
 				_ = json.Unmarshal(rawMessage, data)
 				message := fmt.Sprintf("%s", data.Message)
-
-				// windows 下 默认GBK中文编码转换
-				retTitle, _ := simplifiedchinese.GBK.NewEncoder().String(data.Title)
-				retMessage, _ := simplifiedchinese.GBK.NewEncoder().String(message)
-
-				notification.Title = retTitle
-				notification.Message = retMessage
-				_ = notification.Push()
+				showNotification(data.Title, message)
 			}
 		}
 
